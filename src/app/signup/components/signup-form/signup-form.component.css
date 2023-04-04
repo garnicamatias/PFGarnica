@@ -1,0 +1,97 @@
+h1{
+    text-align: center;
+}
+
+
+form{
+    padding: 20px;
+    width: 450px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    gap: 20px;
+    z-index: 2;
+    max-width: 550px;
+}
+
+.complete-logo-container{
+    background-size: cover;
+    margin: auto;
+    position: relative;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.complete-logo-container > img{
+    object-fit: cover;
+    width: 60%;
+    border-radius: 12px;
+}
+
+
+.login-title-container{
+    display: flex;
+    justify-content: center;
+}
+
+.login-title-container h3{
+    font-size: clamp(8px, 1px + 5vw, 22px);
+    padding: 4%;
+    align-self: center;
+}
+
+
+.inputRadioContainer, .inputCheckContainer{
+    display: flex;
+    column-gap: 80px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content:flex-start
+}
+
+.inputRadioContainer div, .inputRadioContainer div{
+    width: 100px
+}
+
+
+button{
+    width: 100%
+}
+
+.btn-secondary{
+    font-size: 12px;
+}
+
+a{
+    color: black;
+    font-size: 12px;
+}
+
+.invalidInputText{
+    color: rgb(255, 43, 43);
+}
+
+.validInput{
+    border: 2px solid green;
+}
+
+
+.validInput:focus{
+    outline: none;
+}
+
+.invalidInput{
+    border: 2px solid red;
+}
+
+.invalidInput:focus{
+    outline: none;
+}
+
+button:disabled{
+    opacity: 0.3;
+    cursor: not-allowed !important;
+    pointer-events: all !important;
+}

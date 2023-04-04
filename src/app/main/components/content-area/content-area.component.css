@@ -1,0 +1,8 @@
+.welcomeGreetingContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 50px;
+    width: 100%;
+    align-items: center;
+}

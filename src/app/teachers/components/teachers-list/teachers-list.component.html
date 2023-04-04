@@ -1,0 +1,31 @@
+<h2>Docentes</h2>
+
+<div class="row loadingContainer" *ngIf="loading$ | async">
+    <div class="col-md-12 spinnerContainer">
+        <span class="loader" ></span>
+    </div>
+</div>
+
+<div class="row w-50" *ngIf="!(loading$ | async)">
+    <mat-form-field>
+        <mat-label>
+            Filtrar Docentes
+        </mat-label>
+        <input type="text" name="" id="" matInput>
+    </mat-form-field>
+</div>
+<div class="container" *ngIf="!(loading$ | async)">
+    <div class="row">
+        <div class="col-md-3" *ngFor="let teacher of teachers$ | async">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{ teacher | completeName }}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src={{teacher.img}} alt="">
+                <mat-card-content>
+                    <p>Materia: {{ teacher.subject }}</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

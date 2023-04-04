@@ -1,0 +1,53 @@
+h1{
+    text-align: center;
+}
+
+
+form{
+    padding: 20px;
+    width: 450px;
+}
+
+.inputRadioContainer, .inputCheckContainer{
+    display: flex;
+    column-gap: 80px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content:flex-start
+}
+
+.inputRadioContainer div, .inputRadioContainer div{
+    width: 100px
+}
+
+
+.btnContainer button{
+    width: 200px;
+}
+
+.invalidInputText{
+    color: rgb(255, 43, 43);
+}
+
+.validInput{
+    border: 2px solid green;
+}
+
+
+.validInput:focus{
+    outline: none;
+}
+
+.invalidInput{
+    border: 2px solid red;
+}
+
+.invalidInput:focus{
+    outline: none;
+}
+
+button:disabled{
+    opacity: 0.3;
+    cursor: not-allowed !important;
+    pointer-events: all !important;
+}

@@ -1,0 +1,70 @@
+<h2>Estudiantes</h2>
+<div class="row loadingContainer" *ngIf="loading$ | async">
+    <div class="col-md-12 spinnerContainer">
+        <span class="loader" ></span>
+    </div>
+</div>
+<table mat-table [dataSource]="dataSource" *ngIf="!(loading$ | async)">
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef appTitlesStyled>Estudiante</th>
+        <td mat-cell *matCellDef="let element">{{element | completeName}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="fileNumber">
+        <th mat-header-cell *matHeaderCellDef appTitlesStyled>N° Legajo</th>
+        <td mat-cell *matCellDef="let element">{{element.fileNumber}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef appTitlesStyled>Edad</th>
+        <td mat-cell *matCellDef="let element">{{element.age}}</td>
+    </ng-container>
+    <ng-container matColumnDef="isActive">
+        <th mat-header-cell *matHeaderCellDef appTitlesStyled>Condición</th>
+        <td mat-cell *matCellDef="let element" [appBooleanStyled]="element.isActive">
+            {{element.isActive | booleanToText: 'Activo' : 'Pasivo'}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef appTitlesStyled>Género</th>
+        <td class="genderCell" mat-cell *matCellDef="let element" [ngSwitch]="element.gender">
+                <span *ngSwitchCase="'M'">
+                    Masculino
+                </span>
+                <span *ngSwitchCase="'F'">
+                    Femenino
+                </span>
+                <span *ngSwitchCase="'X'">
+                    No Binario
+                </span>
+                <span *ngSwitchDefault>
+                    No Declara
+                </span>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="subject">
+        <th mat-header-cell *matHeaderCellDef appTitlesStyled>Materias</th>
+        <td mat-cell *matCellDef="let element">{{element.subject}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef appTitlesStyled>Acciones</th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-icon-button class="actionBtn" (click)="editStudent(element)">
+                <mat-icon class="actionIcon" color="primary">edit</mat-icon>
+            </button>
+
+            <button mat-button-icons class="actionBtn" (click)="deleteStudentDialog(element)">
+                <mat-icon class="actionIcon" color="warn">delete</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="dataColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: dataColumns"></tr>
+</table>
+
+<div class="btnContainer" *ngIf="!(loading$ | async)">
+    <button class="btn btn-success" (click)="openAddModal()">Añadir Estudiante</button>
+</div>

@@ -1,0 +1,6 @@
+<div class="welcomeGreetingContainer" *ngIf="catchUrl()">
+    <h1>Te damos la bienvenida {{userName}} {{userLastName}}</h1>
+    <p>En el menú lateral podrás acceder a las distintas opciones disponibles</p>
+</div>
+
+<router-outlet></router-outlet> 
