@@ -19,6 +19,8 @@ export const loginReducer = createReducer(
   on(LoginStateActions.loginStateLoaded, (state, { session }) => {
     return {...state, session: {isSessionActive: true, activeUser: session.activeUser}}
   }),
-
+  on(LoginStateActions.logoutState, (state) => {
+    return {...state, session: {isSessionActive: false}, activeUser: null}
+  }),
 );
 

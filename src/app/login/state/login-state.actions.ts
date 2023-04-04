@@ -10,6 +10,10 @@ export const loginStateLoaded = createAction(
   props<{ session : Session}>()
 );
 
+export const logoutState = createAction(
+  '[LoginState] User Logout',
+);
+
 
 
 

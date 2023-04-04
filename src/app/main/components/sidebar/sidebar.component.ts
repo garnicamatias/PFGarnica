@@ -1,7 +1,6 @@
 import { Component, Inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { Session } from '../../../shared/models/session';
-import { SessionService } from '../../../core/services/session.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteDialogComponent } from '../logout-dialog/logout-dialog.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,17 +10,12 @@ import { SessionService } from '../../../core/services/session.service';
 export class SidebarComponent {
 
   constructor( 
-    private route : Router,
-    private session : SessionService
+    private dialog : MatDialog
     ){
    
   }
 
   logout(){
-    let sessionLogout : Session = {
-      isSessionActive : false 
-    };
-    this.session.logout(sessionLogout)
-    this.route.navigate(['login'])
+    this.dialog.open(DeleteDialogComponent)
   }
 }

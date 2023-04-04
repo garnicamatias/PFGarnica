@@ -31,7 +31,6 @@ import { StudentsEffects } from './state/students-state.effects';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    StudentsRoutingModule,
     CoreModule,
     StoreModule.forFeature(studentsStateFeatureKey, reducer),
     EffectsModule.forFeature([StudentsEffects])

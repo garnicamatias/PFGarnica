@@ -1,0 +1,20 @@
+.btnContainer{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 10px;
+}
+
+h1{
+    font-size: 22px;
+}
+
+.dialogContainer{
+    padding: 20px;
+    border-radius: 16px;
+}
+
+button{
+    width: 60px;
+}
