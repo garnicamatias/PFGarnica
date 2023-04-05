@@ -10,6 +10,8 @@ import { Session } from 'src/app/shared/models/session';
 import { loadLoginState, loginStateLoaded } from '../../state/login-state.actions';
 import { Store } from '@ngrx/store';
 import { LoginState } from '../../state/login-state.reducer';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-login-form',
@@ -25,7 +27,8 @@ export class LoginFormComponent implements OnInit{
   constructor(
     private loginService : LoginService,
     private route : Router,
-    private loginStore : Store<LoginState>
+    private loginStore : Store<LoginState>,
+    private dialog : MatDialog
   ){}
 
   ngOnInit(): void {
@@ -52,13 +55,14 @@ export class LoginFormComponent implements OnInit{
       if(session.isSessionActive){
         this.route.navigate(['main']);
       }
-      else alert('Los datos ingresados son incorrectos')
+      else this.dialog.open(ErrorDialogComponent)
+
     });
 
   }
 
   ngOnDestroy(): void {
-    this.suscription.unsubscribe();
+    // this?.suscription.unsubscribe();
   }
 
 

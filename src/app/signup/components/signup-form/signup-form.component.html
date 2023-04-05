@@ -7,6 +7,17 @@
             <h3>Registrate</h3>
           </div>
 
+          <div class="mb-3">
+            <label for="inputName" class="form-label">Nombre</label>
+            <input formControlName="name" type="text" class="form-control" id="inputName">
+            <!-- <div *ngIf="requiredAlert('name')" class="invalidInputText">Este campo es requerido</div> -->
+        </div>
+
+        <div class="mb-3">
+            <label for="inputSurname" class="form-label">Apellido</label>
+            <input formControlName="surname" type="text" class="form-control" id="inputSurname">
+            <!-- <div *ngIf="requiredAlert('name')" class="invalidInputText">Este campo es requerido</div> -->
+        </div>
         <div class="mb-3">
             <label for="inputEmail" class="form-label">Email</label>
             <input formControlName="email" type="email" class="form-control" id="inputEmail">
@@ -19,6 +30,19 @@
             <!-- <div *ngIf="requiredAlert('surname')" class="invalidInputText">Este campo es requerido</div> -->
         </div>
         
+        <div class="mb-3">
+            <label for="inputAdress" class="form-label">Dirección</label>
+            <input formControlName="adress" type="text" class="form-control" id="inputAdress">
+            <!-- <div *ngIf="requiredAlert('name')" class="invalidInputText">Este campo es requerido</div> -->
+        </div>
+
+        <div class="mb-3">
+            <label for="inputPhone" class="form-label">Teléfono</label>
+            <input formControlName="phone" type="number" class="form-control" id="inputPhone">
+            <!-- <div *ngIf="requiredAlert('name')" class="invalidInputText">Este campo es requerido</div> -->
+        </div>
+
+        <p>Te registrarás como docente. Si necesitás otro rol, comunicate con un Administrador</p>
         
         <div class="container w-75 d-flex flex-column align-items-center gap-2 p-3">
             <button type="submit" class="btn btn-success">Registrate</button>

@@ -23,7 +23,7 @@ export class DeleteDialogComponent{
   
   logout(){
     this.store.dispatch(logoutState())
-    this.route.navigate(['login'])
+    this.route.navigate(['home'])
     this.dialogRef.close()
   }
 

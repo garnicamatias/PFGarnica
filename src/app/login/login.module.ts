@@ -11,12 +11,14 @@ import { EffectsModule } from '@ngrx/effects';
 import { LoginStateEffects } from './state/login-state.effects';
 import { StoreModule } from '@ngrx/store';
 import { loginReducer, loginStateFeatureKey } from './state/login-state.reducer';
+import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 
 
 @NgModule({
   declarations: [
     LoginLayoutComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    ErrorDialogComponent
   ],
   imports: [
     CommonModule,

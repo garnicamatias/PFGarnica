@@ -11,6 +11,8 @@ const routes : Routes = [
   children: [
     {path: 'students',canActivate:[AdminGuard] , loadChildren: () => import('../students/students.module').then(m => m.StudentsModule)},
     {path: 'teachers', loadChildren: () => import('../teachers/teachers.module').then(m => m.TeachersModule)},
+    {path: 'subjects', loadChildren: () => import('../subjects/subjects.module').then(m => m.SubjectsModule)},
+    {path: 'users',canActivate:[AdminGuard] , loadChildren: () => import('../users/users.module').then(m => m.UsersModule)},
   ]
 }
 ]

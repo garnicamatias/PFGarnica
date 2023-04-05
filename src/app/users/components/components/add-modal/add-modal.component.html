@@ -1,0 +1,60 @@
+<h1 mat-dialog-title>Añadir Usuario/a</h1>
+<div mat-dialog-content class="formContainer">
+    <form [formGroup]="addUserForm" (ngSubmit)="addUser()">
+    
+        <div class="mb-3">
+            <label for="inputName" class="form-label">Nombre</label>
+            <input formControlName="name" type="text" [ngClass]="getClass('name')" class="form-control" id="inputName">
+            <div *ngIf="requiredAlert('name')" class="invalidInputText">Este campo es requerido</div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="inputSurname" class="form-label">Apellido</label>
+            <input formControlName="surname" type="text" [ngClass]="getClass('surname')" class="form-control" id="inputSurname">
+            <div *ngIf="requiredAlert('surname')" class="invalidInputText">Este campo es requerido</div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input formControlName="email" type="text" [ngClass]="getClass('email')" class="form-control" id="inputEmail">
+            <div *ngIf="requiredAlert('email')" class="invalidInputText">Este campo es requerido</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="inputPass" class="form-label">Contraseña</label>
+            <input formControlName="pass" type="text" [ngClass]="getClass('pass')" class="form-control" id="inputPass">
+            <div *ngIf="requiredAlert('pass')" class="invalidInputText">Este campo es requerido</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="inputAdress" class="form-label">Dirección</label>
+            <input formControlName="adress" type="text" [ngClass]="getClass('adress')" class="form-control" id="inputAdress">
+            <div *ngIf="requiredAlert('adress')" class="invalidInputText">Este campo es requerido</div>
+        </div>
+
+        <p>Tipo de Usuario:</p>
+        <div class="mb-3 form-check inputRadioContainer">
+            <div>
+                <input formControlName="isAdmin" type="radio" class="form-check-input" name="isAdmin" id="admin" value=true>
+                <label class="form-check-label" for="admin">Admin</label>
+            </div>
+            <div>
+                <input formControlName="isAdmin" type="radio" class="form-check-input" name="isAdmin" id="docente" value=false>
+                <label class="form-check-label" for="docente">Docente</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="inputPhone" class="form-label">Teléfono</label>
+            <input formControlName="phone" type="text" [ngClass]="getClass('phone')" class="form-control" id="inputPhone">
+            <div *ngIf="requiredAlert('phone')" class="invalidInputText">Este campo es requerido</div>
+            <div *ngIf="addUserForm.controls['phone'].errors?.['pattern']" class="invalidPhone">Ingresar solamente números</div>
+        </div>
+
+        <div class="container w-50 d-flex flex-column gap-2 p-3">
+            <button id="add-btn" type="submit" [disabled]="addUserForm.invalid" class="btn btn-success">Aceptar</button>
+            <button class="btn btn-danger" [mat-dialog-close]="true">Cancelar</button>
+        </div>
+        
+        </form>
+</div>

@@ -1,0 +1,45 @@
+<h2>Usuarios</h2>
+<div class="row loadingContainer" *ngIf="loading$ | async">
+    <div class="col-md-12 spinnerContainer">
+        <span class="loader" ></span>
+    </div>
+</div>
+<table mat-table [dataSource]="dataSource" *ngIf="!(loading$ | async)">
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef appTitlesStyled>Usuario/a</th>
+        <td mat-cell *matCellDef="let element">{{element | completeName}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef appTitlesStyled>Email</th>
+        <td mat-cell *matCellDef="let element">{{element.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="isAdmin">
+        <th mat-header-cell *matHeaderCellDef appTitlesStyled>Tipo de Usuario/a</th>
+        <td mat-cell *matCellDef="let element" [appBooleanStyled]="element.isAdmin">
+            {{element.isAdmin | booleanToText: 'Admin' : 'Docente'}}
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef appTitlesStyled>Acciones</th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-icon-button class="actionBtn" *ngIf="element.id !== '1'" (click)="editUser(element)">
+                <mat-icon class="actionIcon" color="primary">edit</mat-icon>
+            </button>
+
+            <button mat-button-icons class="actionBtn" *ngIf="element.id !== '1'" (click)="deleteUserDialog(element)">
+                <mat-icon class="actionIcon" color="warn">delete</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="dataColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: dataColumns"></tr>
+</table>
+
+<div class="btnContainer" *ngIf="!(loading$ | async)">
+    <button class="btn btn-success" (click)="openAddModal()">Añadir Usuario</button>
+</div>

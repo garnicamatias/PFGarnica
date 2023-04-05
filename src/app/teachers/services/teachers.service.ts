@@ -20,11 +20,4 @@ export class TeachersService {
     return this.http.get<Teacher[]>(`${env.apiURL}/teachers`)
   }
 
-  //  getTeachers() : Promise<Teacher[]>{
-
-  //   return new Promise((resolve, reject) =>{
-  //      resolve(this.teachers)
-  //   })
-  //  }
-    
 }
