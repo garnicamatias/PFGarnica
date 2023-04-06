@@ -6,25 +6,31 @@
     </div>
 </div>
 
-<div class="row w-50" *ngIf="!(loading$ | async)">
+<!-- <div class="row w-50" *ngIf="!(loading$ | async)">
     <mat-form-field>
         <mat-label>
             Filtrar Docentes
         </mat-label>
         <input type="text" name="" id="" matInput>
     </mat-form-field>
-</div>
+</div> -->
 <div class="container" *ngIf="!(loading$ | async)">
     <div class="row">
-        <div class="col-md-3" *ngFor="let teacher of teachers$ | async">
-            <mat-card>
+        <div class="col-md-3 teacherContainer" *ngFor="let teacher of teachers$ | async">
+            <mat-card class="teacherCard">
                 <mat-card-header>
                     <mat-card-title>{{ teacher | completeName }}</mat-card-title>
                 </mat-card-header>
-                <img mat-card-image src={{teacher.img}} alt="">
+                <img mat-card-image src="../../../../assets/img/user_img.png" alt="">
                 <mat-card-content>
                     <p>Materia: {{ teacher.subject }}</p>
                 </mat-card-content>
+                <div class="btnContainer">
+                    <button mat-icon-button class="btn btn-success">
+                        Ver Docente
+                    </button>
+        
+                </div>
             </mat-card>
         </div>
     </div>

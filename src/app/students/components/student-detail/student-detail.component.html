@@ -1,0 +1,21 @@
+<h2>Estudiante: {{student | completeName}}</h2>
+<h4>N° de Legajo:  {{student.fileNumber}}</h4> 
+<h4>Edad:  {{student.age}}</h4>
+<h4 [ngSwitch]="student.gender">
+Género: 
+<span *ngSwitchCase="'M'">
+    Masculino
+</span>
+<span *ngSwitchCase="'F'">
+    Femenino
+</span>
+<span *ngSwitchCase="'X'">
+    No Binario
+</span>
+<span *ngSwitchDefault>
+    No Declara
+</span>
+</h4>
+<div class="btnContainer">
+    <button class="btn btn-success" routerLink="/main/students">Volver</button>
+</div>

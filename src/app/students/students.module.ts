@@ -14,6 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreFeatureModule, StoreModule } from '@ngrx/store';
 import { reducer, studentsStateFeatureKey } from './state/students-state.reducer';
 import { StudentsEffects } from './state/students-state.effects';
+import { StudentDetailComponent } from './components/student-detail/student-detail.component';
 
 
 
@@ -22,7 +23,8 @@ import { StudentsEffects } from './state/students-state.effects';
     AddModalComponent,
     EditModalComponent,
     StudentsTableComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    StudentDetailComponent
   ],
   imports: [
     CommonModule,
