@@ -23,7 +23,6 @@ export class LoginService {
     return this.http.get<User[]>(`${env.apiURL2}/users`).pipe(
       map((users: User[]) => {
         let validatedUser = users.find((u: User) => u.email === user.email && u.pass === user.pass);
-        console.log(validatedUser)
         if(validatedUser){
           const session: Session = {
             isSessionActive: true,

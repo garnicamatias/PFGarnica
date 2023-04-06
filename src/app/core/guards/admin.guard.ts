@@ -25,7 +25,6 @@ export class AdminGuard implements CanActivate {
       this.store.select(selectSesionState).subscribe(
         (session : Session)=>{
           this.sessionAdmin = session.activeUser?.isAdmin
-          console.log(this.sessionAdmin)
         }
         )
           if (this.sessionAdmin) {

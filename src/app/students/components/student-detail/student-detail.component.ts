@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Student } from 'src/app/shared/models/student';
 import { StudentState } from 'src/app/shared/models/student.state';
-import { studentsLoaded } from '../../state/students-state.actions';
-import { Observable, filter, map } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { studentsLoadedSelector } from '../../state/students-state.selectors';
 
@@ -29,7 +27,6 @@ export class StudentDetailComponent implements OnInit {
     (studentsLoadedSelector) => {
       this.studentFilter = studentsLoadedSelector.filter(student => student.id === this.id)
       this.student = this.studentFilter[0]
-      console.log(this.student)
     }
    )
   }
