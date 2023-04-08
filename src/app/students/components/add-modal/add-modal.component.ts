@@ -32,7 +32,8 @@ export class AddModalComponent {
       age: new FormControl('',[Validators.required, Validators.pattern(regexOnlyNumbers)]),
       isActive : new FormControl('',[Validators.required]),
       gender : new FormControl('', [Validators.required]),
-      subject : new FormControl('', [Validators.required])
+      adress: new FormControl('', [Validators.required]),
+      course: new FormControl('', [Validators.required]),
     }
 
     this.addStudentForm = new FormGroup(controls);
@@ -49,6 +50,7 @@ export class AddModalComponent {
     switch (input) {
       case 'name':
       case 'surname':
+      case 'adress':
 
       if (this.addStudentForm.controls[input].touched && this.addStudentForm.controls[input].errors?.['required'] ) 
       return 'invalidInput';
@@ -82,7 +84,8 @@ export class AddModalComponent {
       age: this.addStudentForm.value.age,
       isActive: booleanValue,
       gender: this.addStudentForm.value.gender,
-      subject: this.addStudentForm.value.subject
+      adress : this.addStudentForm.value.adress,
+      course : this.addStudentForm.value.course
     }
     this.store.dispatch(AddStudent({student : newStudent}))
     this.dialogRef.close()

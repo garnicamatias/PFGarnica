@@ -15,6 +15,7 @@ import { StoreFeatureModule, StoreModule } from '@ngrx/store';
 import { reducer, studentsStateFeatureKey } from './state/students-state.reducer';
 import { StudentsEffects } from './state/students-state.effects';
 import { StudentDetailComponent } from './components/student-detail/student-detail.component';
+import { CoursesComponent } from './components/courses/courses.component';
 
 
 
@@ -24,7 +25,8 @@ import { StudentDetailComponent } from './components/student-detail/student-deta
     EditModalComponent,
     StudentsTableComponent,
     DeleteDialogComponent,
-    StudentDetailComponent
+    StudentDetailComponent,
+    CoursesComponent
   ],
   imports: [
     CommonModule,

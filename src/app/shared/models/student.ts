@@ -8,5 +8,6 @@ export interface Student{
     age: number;
     isActive: boolean;
     gender: string;
-    subject: string;
+    adress: string,
+    course: number
 }

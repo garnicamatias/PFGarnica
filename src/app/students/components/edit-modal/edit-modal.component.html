@@ -61,28 +61,17 @@
         </div>
         
 
-        <p>Materia</p>
-        <div class="mb-3 form-check inputRadioContainer">
-            <div>
-                <input formControlName="subject" type="radio" class="form-check-input" name="subject" id="Matemática" value="Matemática">
-                <label class="form-check-label" for="Matemática">Matemática</label>
-            </div>
-            <div>
-                <input formControlName="subject" type="radio" class="form-check-input" name="subject" id="Inglés" value="Inglés">
-                <label class="form-check-label" for="Inglés">Inglés</label>
-            </div>
-            <div>
-                <input formControlName="subject" type="radio" class="form-check-input" name="subject" id="Física" value="Física">
-                <label class="form-check-label" for="Física">Física</label>
-            </div>
-            <div>
-                <input formControlName="subject" type="radio" class="form-check-input" name="subject" id="Diseño" value="Diseño">
-                <label class="form-check-label" for="Diseño">Diseño</label>
-            </div>
-            <div>
-                <input formControlName="subject" type="radio" class="form-check-input" name="subject" id="Geografía" value="Geografía">
-                <label class="form-check-label" for="Geografía">Geografía</label>
-            </div>
+        <div class="mb-3">
+            <label for="inputAdress" class="form-label">Dirección</label>
+            <input formControlName="adress" type="text" [ngClass]="getClass('adress')" class="form-control" id="inputAdress">
+            <div *ngIf="requiredAlert('adress')" class="invalidInputText">Este campo es requerido</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="inputCourse" class="form-label">Curso</label>
+            <input formControlName="course" type="text" [ngClass]="getClass('course')" class="form-control" id="inputCourse">
+            <div *ngIf="requiredAlert('course')" class="invalidInputText">Este campo es requerido</div>
+            <div *ngIf="editStudentForm.controls['course'].errors?.['pattern']" class="invalidInputText">Ingresar solamente números</div>
         </div>
         
         <div class="container w-50 d-flex flex-column gap-2 p-3">

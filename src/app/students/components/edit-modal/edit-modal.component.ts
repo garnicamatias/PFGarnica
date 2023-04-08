@@ -32,7 +32,8 @@ export class EditModalComponent {
       age: new FormControl(studentToEdit.age,[Validators.required, Validators.pattern(regexOnlyNumbers)]),
       isActive : new FormControl(studentToEdit.isActive ? "true" : "false",[Validators.required]),
       gender : new FormControl(studentToEdit.gender, [Validators.required]),
-      subject : new FormControl(studentToEdit.subject, [Validators.required])
+      adress : new FormControl(studentToEdit.adress, [Validators.required]),
+      course : new FormControl(studentToEdit.course, [Validators.required]),
     }
 
     this.editStudentForm = new FormGroup(controls);
@@ -49,6 +50,7 @@ export class EditModalComponent {
     switch (input) {
       case 'name':
       case 'surname':
+      case 'adress':
 
       if (this.editStudentForm.controls[input].touched && this.editStudentForm.controls[input].errors?.['required'] ) 
       return 'invalidInput';
@@ -83,7 +85,8 @@ export class EditModalComponent {
       age: this.editStudentForm.value.age,
       isActive: booleanValue,
       gender: this.editStudentForm.value.gender,
-      subject: this.editStudentForm.value.subject
+      adress: this.editStudentForm.value.adress,
+      course: this.editStudentForm.value.course
     }
 
     this.store.dispatch(EditStudent({ student : newStudent}))

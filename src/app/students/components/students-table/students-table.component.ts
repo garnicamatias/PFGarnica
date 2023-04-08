@@ -11,7 +11,7 @@ import { Store } from '@ngrx/store';
 import { loadStudents, studentsLoaded } from '../../state/students-state.actions';
 import { loadStudentsSelector, studentsLoadedSelector } from '../../state/students-state.selectors';
 import { StudentsState } from '../../state/students-state.reducer';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -22,9 +22,10 @@ import { Router } from '@angular/router';
 export class StudentsTableComponent implements OnInit{
 
   dataSource !: MatTableDataSource<Student> 
-  dataColumns: string[] = ['name', 'fileNumber', 'age', 'isActive', 'gender', 'subject','actions']
+  dataColumns: string[] = ['name', 'fileNumber', 'isActive', 'gender','actions']
   suscription !: Subscription;
-
+  course !: string | null
+  courseNumber !: number
   students!: Student[];
   loading$ !: Observable<Boolean>
 
@@ -32,26 +33,32 @@ export class StudentsTableComponent implements OnInit{
   constructor(
     private studentsService : StudentsService,
     private dialog : MatDialog,
-    private store : Store<StudentsState>
+    private store : Store<StudentsState>,
+    private route : ActivatedRoute
     )
     {
   }
   
   ngOnInit(): void {
+    this.course = this.route.snapshot.paramMap.get('course')
+    if(this.course){
+      this.courseNumber = +this.course
+    } else this.courseNumber = 0
     this.loading$ = this.store.select(loadStudentsSelector)
     this.store.dispatch(loadStudents());
     this.dataSource = new MatTableDataSource<Student>();
-    
     this.store.select(studentsLoadedSelector).subscribe((studentsLoadedSelector)=>{
-          this.dataSource.data = studentsLoadedSelector
-        })
+          this.dataSource.data = studentsLoadedSelector.filter(students =>
+            {return students.course == this.courseNumber})
+    })
 
   }
 
 
   refresh() {
     this.store.select(studentsLoadedSelector).subscribe((studentsLoadedSelector)=>{
-      this.dataSource.data = studentsLoadedSelector
+      this.dataSource.data = studentsLoadedSelector.filter(students =>
+        {return students.course == this.courseNumber})
     })
   }
 

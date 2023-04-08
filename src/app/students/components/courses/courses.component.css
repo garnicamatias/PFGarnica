@@ -1,0 +1,14 @@
+.cardsContainer{
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+h2{
+    padding-top: 20px;
+}
+
+mat-card{
+    cursor: pointer
+}

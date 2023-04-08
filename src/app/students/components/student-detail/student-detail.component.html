@@ -1,5 +1,6 @@
 <h2>Estudiante: {{student | completeName}}</h2>
 <h4>N° de Legajo:  {{student.fileNumber}}</h4> 
+<h4>Condición: {{student.isActive | booleanToText: 'Activo' : 'Pasivo'}}</h4>
 <h4>Edad:  {{student.age}}</h4>
 <h4 [ngSwitch]="student.gender">
 Género: 
@@ -16,6 +17,8 @@ Género:
     No Declara
 </span>
 </h4>
+<h4>Dirección: {{student.adress}}</h4>
+<h4>Curso: {{student.course}}°</h4>
 <div class="btnContainer">
     <button class="btn btn-success" routerLink="/main/students">Volver</button>
 </div>
