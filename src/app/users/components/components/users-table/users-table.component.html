@@ -1,4 +1,9 @@
-<h2>Usuarios</h2>
+<div class="titleContainer">
+    <h2>Usuarios</h2>
+    <div class="btnContainer" *ngIf="!(loading$ | async)">
+        <button class="btn btn-success" (click)="openAddModal()">Añadir Usuario</button>
+    </div>
+</div>
 <div class="row loadingContainer" *ngIf="loading$ | async">
     <div class="col-md-12 spinnerContainer">
         <span class="loader" ></span>
@@ -40,6 +45,4 @@
     <tr mat-row *matRowDef="let row; columns: dataColumns"></tr>
 </table>
 
-<div class="btnContainer" *ngIf="!(loading$ | async)">
-    <button class="btn btn-success" (click)="openAddModal()">Añadir Usuario</button>
-</div>
+

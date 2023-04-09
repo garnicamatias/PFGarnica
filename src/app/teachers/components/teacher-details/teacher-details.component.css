@@ -1,0 +1,28 @@
+.teacherContainer{
+    padding-top: 20px;
+}
+
+h2{
+    padding-bottom: 20px;
+}
+
+h4{
+    padding-left: 10px;
+}
+
+.actionBtnContainer{
+    display: flex;
+    gap: 20px;
+}
+
+.btnContainer{
+    padding: 20px 0 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.btn-link{
+    padding-left: 0;
+}

@@ -1,10 +1,10 @@
 
-<div class="principalTitleContainer">
-    <div class="titleContainer">
-        <h2 *ngIf="(course !== 'all')">Estudiantes {{courseNumber}}° año</h2>
-        <h2 *ngIf="(course == 'all')">Estudiantes (Todos los cursos)</h2>
-        <button class="btn btn-link p-0" routerLink="/main/students">< Volver</button>
-    </div>
+<div class="titleContainer">
+    <h2 *ngIf="(course !== 'all')">Estudiantes {{courseNumber}}° año</h2>
+    <h2 *ngIf="(course == 'all')">Estudiantes (Todos los cursos)</h2>
+</div>
+<div class="topBtnContainer">
+    <button class="btn btn-link p-0" routerLink="/main/students">< Volver</button>
     <div class="btnContainer" *ngIf="!(loading$ | async)">
         <button class="btn btn-success" (click)="openAddModal()">Añadir Estudiante</button>
     </div>

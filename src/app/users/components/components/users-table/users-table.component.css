@@ -1,14 +1,14 @@
-
-h2{
-    padding: 20px 0 20px 0;
+.titleContainer{
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-
 
 .btnContainer{
     display: flex;
-    justify-content: right;
+    align-items: center;
     gap: 20px;
-    padding: 20px 40px 0 0  
 }
 
 

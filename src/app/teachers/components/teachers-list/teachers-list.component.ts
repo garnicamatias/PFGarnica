@@ -26,13 +26,8 @@ export class TeachersListComponent implements OnInit {
   ngOnInit() : void{
     this.loading$ = this.store.select(loadTeachersSelector)
     this.store.dispatch(loadTeachers())
-    this.teacherService.getTeachers().subscribe((teachersObtained : Teacher[])=>{
-        this.store.dispatch(teachersLoaded({teachersObtained}))
-        this.teachers$ = this.store.select(teachersLoadedSelector)
-    })
-    
-   //ver esta parte en el video 1.05
-  }
+    this.teachers$ = this.store.select(teachersLoadedSelector)
+    }
 
 
 }

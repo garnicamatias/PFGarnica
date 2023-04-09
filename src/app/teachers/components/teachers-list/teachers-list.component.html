@@ -18,7 +18,7 @@
                     <p>Materia: {{ teacher.subject }}</p>
                 </mat-card-content>
                 <div class="btnContainer">
-                    <button mat-icon-button class="btn btn-success" routerLink="1">
+                    <button mat-icon-button class="btn btn-success" [routerLink]="['/main/teachers/', teacher.id]">
                         Ver Docente
                     </button>
         

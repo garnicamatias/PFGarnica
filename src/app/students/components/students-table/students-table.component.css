@@ -1,15 +1,12 @@
 
-.principalTitleContainer{
+.topBtnContainer{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 20px;
 }
 
 .titleContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items:flex-start;
     padding-top: 20px;
 }
 

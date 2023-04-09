@@ -4,5 +4,6 @@ export interface Teacher {
     surname: string,
     fileNumber: number,
     subject: string,
-    img: string
+    age: number,
+    adress: string
 }

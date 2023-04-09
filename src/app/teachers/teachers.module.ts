@@ -9,6 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { reducer, teachersStateFeatureKey } from './state/teachers-state.reducer';
 import { TeacherDetailsComponent } from './components/teacher-details/teacher-details.component';
+import { TeachersEffects } from './state/teachers-state.effects';
 
 
 
@@ -22,7 +23,8 @@ import { TeacherDetailsComponent } from './components/teacher-details/teacher-de
     TeachersRoutingModule,
     MaterialModule,
     SharedModule,
-    StoreModule.forFeature(teachersStateFeatureKey, reducer)
+    StoreModule.forFeature(teachersStateFeatureKey, reducer),
+    EffectsModule.forFeature([TeachersEffects])
   ],
   providers: [TeachersService],
 })
