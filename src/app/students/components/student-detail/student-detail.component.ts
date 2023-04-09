@@ -15,6 +15,8 @@ export class StudentDetailComponent implements OnInit {
   studentFilter !:Student[]
   student !: Student
   id !: string | null
+  course !: string | null
+  courseNumber !: number
 
   constructor(
     private store : Store<StudentState>,
@@ -23,12 +25,23 @@ export class StudentDetailComponent implements OnInit {
 
   ngOnInit(): void {
    this.id = this.route.snapshot.paramMap.get('id')
-   this.store.select(studentsLoadedSelector).subscribe(
-    (studentsLoadedSelector) => {
-      this.studentFilter = studentsLoadedSelector.filter(student => student.id === this.id)
-      this.student = this.studentFilter[0]
+   this.course = this.route.snapshot.paramMap.get('course')
+    if(this.course  && this.course !== 'all'){
+      this.courseNumber = +this.course
+      this.store.select(studentsLoadedSelector).subscribe(
+        (studentsLoadedSelector) => {
+          this.studentFilter = studentsLoadedSelector.filter(student => (student.id === this.id && student.course == this.courseNumber))
+          this.student = this.studentFilter[0]
+        }
+       )
+    } else {
+      this.store.select(studentsLoadedSelector).subscribe(
+        (studentsLoadedSelector) => {
+          this.studentFilter = studentsLoadedSelector.filter(student => (student.id === this.id))
+          this.student = this.studentFilter[0]
+        })
     }
-   )
+   
   }
 
 }

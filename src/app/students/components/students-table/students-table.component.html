@@ -1,9 +1,12 @@
 
-<div class="titleContainer">
-    <h2>Estudiantes {{courseNumber}}° año</h2>
+<div class="principalTitleContainer">
+    <div class="titleContainer">
+        <h2 *ngIf="(course !== 'all')">Estudiantes {{courseNumber}}° año</h2>
+        <h2 *ngIf="(course == 'all')">Estudiantes (Todos los cursos)</h2>
+        <button class="btn btn-link p-0" routerLink="/main/students">< Volver</button>
+    </div>
     <div class="btnContainer" *ngIf="!(loading$ | async)">
         <button class="btn btn-success" (click)="openAddModal()">Añadir Estudiante</button>
-        <button class="btn btn-link" routerLink="/main/students">Volver</button>
     </div>
 </div>
 <div class="row loadingContainer" *ngIf="loading$ | async">
@@ -17,6 +20,11 @@
         <td mat-cell *matCellDef="let element">{{element | completeName}}</td>
     </ng-container>
     
+    <ng-container matColumnDef="course">
+        <th mat-header-cell *matHeaderCellDef appTitlesStyled>Curso</th>
+        <td mat-cell *matCellDef="let element">{{element.course}}°</td>
+    </ng-container>
+
     <ng-container matColumnDef="fileNumber">
         <th mat-header-cell *matHeaderCellDef appTitlesStyled>N° Legajo</th>
         <td mat-cell *matCellDef="let element">{{element.fileNumber}}</td>
@@ -50,7 +58,8 @@
         <th mat-header-cell *matHeaderCellDef appTitlesStyled>Acciones</th>
         <td mat-cell *matCellDef="let element">
             <button mat-button-icons class="actionBtn">
-                <mat-icon class="actionIcon" color="secondary" [routerLink]="['/main/students/', element.id]">visibility</mat-icon>
+                <mat-icon class="actionIcon" color="secondary" *ngIf="(course !== 'all')"[routerLink]="['/main/students/', courseNumber, element.id]">visibility</mat-icon>
+                <mat-icon class="actionIcon" color="secondary" *ngIf="(course == 'all')"[routerLink]="['/main/students/', course, element.id]">visibility</mat-icon>
             </button>
             <button mat-icon-button class="actionBtn" (click)="editStudent(element)">
                 <mat-icon class="actionIcon" color="primary">edit</mat-icon>

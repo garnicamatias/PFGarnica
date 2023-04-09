@@ -8,12 +8,14 @@ import { SharedModule } from '../shared/shared.module';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { reducer, teachersStateFeatureKey } from './state/teachers-state.reducer';
+import { TeacherDetailsComponent } from './components/teacher-details/teacher-details.component';
 
 
 
 @NgModule({
   declarations: [
-    TeachersListComponent
+    TeachersListComponent,
+    TeacherDetailsComponent
   ],
   imports: [
     CommonModule,

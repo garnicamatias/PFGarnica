@@ -20,5 +20,6 @@ Género:
 <h4>Dirección: {{student.adress}}</h4>
 <h4>Curso: {{student.course}}°</h4>
 <div class="btnContainer">
-    <button class="btn btn-success" routerLink="/main/students">Volver</button>
+    <button class="btn btn-link p-0" *ngIf="(course !== 'all')" [routerLink]="['/main/students/', courseNumber]"> < Volver</button>
+    <button class="btn btn-link p-0" *ngIf="(course == 'all')" [routerLink]="['/main/students/all']"> < Volver</button>
 </div>

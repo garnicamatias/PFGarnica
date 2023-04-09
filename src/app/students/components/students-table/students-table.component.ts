@@ -22,7 +22,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class StudentsTableComponent implements OnInit{
 
   dataSource !: MatTableDataSource<Student> 
-  dataColumns: string[] = ['name', 'fileNumber', 'isActive', 'gender','actions']
+  dataColumns: string[] = ['name','course', 'fileNumber', 'isActive', 'gender','actions']
   suscription !: Subscription;
   course !: string | null
   courseNumber !: number
@@ -40,26 +40,37 @@ export class StudentsTableComponent implements OnInit{
   }
   
   ngOnInit(): void {
-    this.course = this.route.snapshot.paramMap.get('course')
-    if(this.course){
-      this.courseNumber = +this.course
-    } else this.courseNumber = 0
     this.loading$ = this.store.select(loadStudentsSelector)
     this.store.dispatch(loadStudents());
     this.dataSource = new MatTableDataSource<Student>();
-    this.store.select(studentsLoadedSelector).subscribe((studentsLoadedSelector)=>{
-          this.dataSource.data = studentsLoadedSelector.filter(students =>
-            {return students.course == this.courseNumber})
-    })
-
+    this.course = this.route.snapshot.paramMap.get('course')
+    if(this.course && this.course !== 'all'){
+      this.courseNumber = +this.course
+      this.store.select(studentsLoadedSelector).subscribe((studentsLoadedSelector)=>{
+        this.dataSource.data = studentsLoadedSelector.filter(students =>
+          {return students.course == this.courseNumber})
+        })
+    } else {
+      this.store.select(studentsLoadedSelector).subscribe((studentsLoadedSelector)=>{
+        this.dataSource.data = studentsLoadedSelector
+        })
+    }
+    
   }
 
 
   refresh() {
-    this.store.select(studentsLoadedSelector).subscribe((studentsLoadedSelector)=>{
-      this.dataSource.data = studentsLoadedSelector.filter(students =>
-        {return students.course == this.courseNumber})
-    })
+    if(this.course && this.course !== 'all'){
+      this.courseNumber = +this.course
+      this.store.select(studentsLoadedSelector).subscribe((studentsLoadedSelector)=>{
+        this.dataSource.data = studentsLoadedSelector.filter(students =>
+          {return students.course == this.courseNumber})
+        })
+    } else {
+      this.store.select(studentsLoadedSelector).subscribe((studentsLoadedSelector)=>{
+        this.dataSource.data = studentsLoadedSelector
+        })
+    }
   }
 
   deleteStudentDialog(student : Student){

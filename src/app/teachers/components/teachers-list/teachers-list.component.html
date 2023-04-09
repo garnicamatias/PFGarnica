@@ -6,14 +6,6 @@
     </div>
 </div>
 
-<!-- <div class="row w-50" *ngIf="!(loading$ | async)">
-    <mat-form-field>
-        <mat-label>
-            Filtrar Docentes
-        </mat-label>
-        <input type="text" name="" id="" matInput>
-    </mat-form-field>
-</div> -->
 <div class="container" *ngIf="!(loading$ | async)">
     <div class="row">
         <div class="col-md-3 teacherContainer" *ngFor="let teacher of teachers$ | async">
@@ -26,7 +18,7 @@
                     <p>Materia: {{ teacher.subject }}</p>
                 </mat-card-content>
                 <div class="btnContainer">
-                    <button mat-icon-button class="btn btn-success">
+                    <button mat-icon-button class="btn btn-success" routerLink="1">
                         Ver Docente
                     </button>
         
