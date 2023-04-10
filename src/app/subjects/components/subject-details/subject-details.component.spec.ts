@@ -1,6 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SubjectDetailsComponent } from './subject-details.component';
+import { provideMockStore } from '@ngrx/store/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+
+beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideMockStore({})],
+    });
+  });
 
 describe('SubjectDetailsComponent', () => {
   let component: SubjectDetailsComponent;
@@ -8,7 +16,8 @@ describe('SubjectDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SubjectDetailsComponent ]
+      declarations: [ SubjectDetailsComponent ],
+      imports:[RouterTestingModule]
     })
     .compileComponents();
 

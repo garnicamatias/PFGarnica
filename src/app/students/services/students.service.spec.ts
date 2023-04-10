@@ -32,7 +32,8 @@ describe('StudentsService', () => {
   "age": 15,
   "isActive": true,
   "gender": "M",
-  "subject": "Matemática",
+  "adress": "Brasil 222",
+  "course": 2,
   "id": "1"
  },
  {
@@ -42,7 +43,8 @@ describe('StudentsService', () => {
   "age": 14,
   "isActive": true,
   "gender": "F",
-  "subject": "Diseño",
+  "adress": "Brasil 222",
+  "course": 2,
   "id": "2"
  },
  {
@@ -52,7 +54,8 @@ describe('StudentsService', () => {
   "age": 16,
   "isActive": true,
   "gender": "X",
-  "subject": "Inglés",
+  "adress": "Brasil 222",
+  "course": 2,
   "id": "3"
  },
  {
@@ -62,7 +65,8 @@ describe('StudentsService', () => {
   "age": 13,
   "isActive": true,
   "gender": "NaN",
-  "subject": "Física",
+  "adress": "Brasil 222",
+  "course": 2,
   "id": "4"
  },
  {
@@ -72,7 +76,8 @@ describe('StudentsService', () => {
   "age": 15,
   "isActive": false,
   "gender": "M",
-  "subject": "Geografía",
+  "adress": "Brasil 222",
+  "course": 2,
   "id": "5"
  }
 ]

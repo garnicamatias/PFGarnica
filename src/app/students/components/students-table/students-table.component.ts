@@ -28,7 +28,7 @@ import { User } from 'src/app/shared/models/user';
 export class StudentsTableComponent implements OnInit{
 
   dataSource !: MatTableDataSource<Student> 
-  dataColumns: string[] = ['name','course', 'fileNumber', 'isActive', 'gender','actions']
+  dataColumns: string[] = ['name','course', 'fileNumber', 'isActive', 'gender', 'actions']
   suscription !: Subscription;
   course !: string | null
   courseNumber !: number

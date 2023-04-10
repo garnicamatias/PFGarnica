@@ -48,7 +48,8 @@ describe('AddModalComponent', () => {
     const age = addStudentForm.controls["age"];
     const isActive = addStudentForm.controls["isActive"];
     const gender = addStudentForm.controls["gender"];
-    const subject = addStudentForm.controls["subject"];
+    const adress = addStudentForm.controls["adress"];
+    const course = addStudentForm.controls["course"]
 
     name.setValue('');
     surname.setValue('');
@@ -56,7 +57,8 @@ describe('AddModalComponent', () => {
     age.setValue('');
     isActive.setValue(false);
     gender.setValue('');
-    subject.setValue('');
+    adress.setValue(''),
+    course.setValue('')
 
     const addBtn = fixture.debugElement.query(By.css("#add-btn"));
     addBtn.nativeElement.click();
@@ -74,7 +76,8 @@ describe('AddModalComponent', () => {
     const age = addStudentForm.controls["age"];
     const isActive = addStudentForm.controls["isActive"];
     const gender = addStudentForm.controls["gender"];
-    const subject = addStudentForm.controls["subject"];
+    const adress = addStudentForm.controls["adress"];
+    const course = addStudentForm.controls["course"]
 
     name.setValue('Juan');
     surname.setValue('Gomez');
@@ -82,7 +85,8 @@ describe('AddModalComponent', () => {
     age.setValue(45);
     isActive.setValue(false);
     gender.setValue('M');
-    subject.setValue('Diseño');
+    adress.setValue('Brasil 222'),
+    course.setValue(2)
 
     const addBtn = fixture.debugElement.query(By.css("#add-btn"));
     addBtn.nativeElement.click();

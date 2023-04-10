@@ -6,12 +6,12 @@ import { AddModalComponent } from './add-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
-import { StudentsService } from '../../services/students.service';
+import { UsersService } from 'src/app/users/services/users.service';
 
 describe('AddModalComponent', () => {
   let component: AddModalComponent;
   let fixture: ComponentFixture<AddModalComponent>;
-  let students: StudentsService;
+  let users: UsersService;
   let httpClientSpy: { get: jasmine.Spy }
 
 
@@ -38,60 +38,6 @@ describe('AddModalComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-
-  it('El formulario no se envía si los inputs están vacíos', ()=>{
-    const addStudentForm = component.addStudentForm;
-    const name = addStudentForm.controls["name"];
-    const surname = addStudentForm.controls["surname"];
-    const fileNumber = addStudentForm.controls["fileNumber"];
-    const age = addStudentForm.controls["age"];
-    const isActive = addStudentForm.controls["isActive"];
-    const gender = addStudentForm.controls["gender"];
-    const subject = addStudentForm.controls["subject"];
-
-    name.setValue('');
-    surname.setValue('');
-    fileNumber.setValue('');
-    age.setValue('');
-    isActive.setValue(false);
-    gender.setValue('');
-    subject.setValue('');
-
-    const addBtn = fixture.debugElement.query(By.css("#add-btn"));
-    addBtn.nativeElement.click();
-
-    fixture.detectChanges();
-
-    expect(addStudentForm.valid).toBeFalse();
-  });
-
-  it('El formulario es válido si los inputs están completos con los tipos de datos correspondientes', ()=>{
-    const addStudentForm = component.addStudentForm;
-    const name = addStudentForm.controls["name"];
-    const surname = addStudentForm.controls["surname"];
-    const fileNumber = addStudentForm.controls["fileNumber"];
-    const age = addStudentForm.controls["age"];
-    const isActive = addStudentForm.controls["isActive"];
-    const gender = addStudentForm.controls["gender"];
-    const subject = addStudentForm.controls["subject"];
-
-    name.setValue('Juan');
-    surname.setValue('Gomez');
-    fileNumber.setValue(1545);
-    age.setValue(45);
-    isActive.setValue(false);
-    gender.setValue('M');
-    subject.setValue('Diseño');
-
-    const addBtn = fixture.debugElement.query(By.css("#add-btn"));
-    addBtn.nativeElement.click();
-
-    fixture.detectChanges();
-
-    expect(addStudentForm.valid).toBeTrue();
-  });
-
 
 
 });

@@ -4,6 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import {HttpClientModule} from '@angular/common/http';
 import { EditModalComponent } from './edit-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from 'src/app/shared/material.module';
 
 describe('EditModalComponent', () => {
   let component: EditModalComponent;
@@ -16,7 +17,8 @@ describe('EditModalComponent', () => {
         MatDialogModule,
         HttpClientTestingModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MaterialModule
       ],
       providers: [
          {

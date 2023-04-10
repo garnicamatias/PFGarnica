@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TeacherDetailsComponent } from './teacher-details.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MaterialModule } from 'src/app/shared/material.module';
 
 describe('TeacherDetailsComponent', () => {
   let component: TeacherDetailsComponent;
@@ -8,6 +10,7 @@ describe('TeacherDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [RouterTestingModule, MaterialModule],
       declarations: [ TeacherDetailsComponent ]
     })
     .compileComponents();
