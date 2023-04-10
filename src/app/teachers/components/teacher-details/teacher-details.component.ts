@@ -62,7 +62,6 @@ export class TeacherDetailsComponent implements OnInit{
   deleteTeacher(teacher : Teacher){
     this.dialog.open(DeleteTeacherComponent, { data: teacher }).beforeClosed().subscribe(()=>{
       this.refresh()
-      this.router.navigate(['main/teachers'])
     })
   }
 }

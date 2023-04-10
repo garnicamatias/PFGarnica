@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { TeacherState } from 'src/app/shared/models/teacher.state';
 import { Teacher } from 'src/app/shared/models/teacher';
 import { DeleteTeacher } from '../../state/teachers-state.actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-delete-teacher',
@@ -12,6 +13,7 @@ import { DeleteTeacher } from '../../state/teachers-state.actions';
   styleUrls: ['./delete-teacher.component.css']
 })
 export class DeleteTeacherComponent {
+ 
 
   constructor(
     public dialog: MatDialog,
@@ -19,6 +21,7 @@ export class DeleteTeacherComponent {
     private teachersServicec: TeachersService,
     private store : Store<TeacherState>,
     @Inject(MAT_DIALOG_DATA) public data: Teacher,
+    private router : Router,
     ) {
 
     }
@@ -26,5 +29,6 @@ export class DeleteTeacherComponent {
   deleteTeacher(teacher : Teacher){
     this.store.dispatch(DeleteTeacher({teacher : teacher}))
     this.dialogRef.close()
+    this.router.navigate(['main/teachers'])
   }
 }
