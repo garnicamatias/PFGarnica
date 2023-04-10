@@ -4,11 +4,11 @@
     <h4>Materia: {{teacher.subject}} </h4>
     <h4>Edad : {{teacher.age}}</h4>
     <h4>Dirección: {{teacher.adress}}</h4>
-</div>
-<div class="btnContainer">
-    <div class="actionBtnContainer">
-        <button class="btn btn-success">Editar</button>
-        <button class="btn btn-danger">Eliminar</button>
+    <div class="btnContainer">
+        <div class="actionBtnContainer" *ngIf="session$ | async as user">
+            <button class="btn btn-success" (click)="editTeacherModal(teacher)" *ngIf="user.isAdmin">Editar</button>
+            <button class="btn btn-danger" (click)="deleteTeacher(teacher)" *ngIf="user.isAdmin">Eliminar</button>
+        </div>
+        <button class="btn btn-link" routerLink="/main/teachers">< Volver</button>
     </div>
-    <button class="btn btn-link" routerLink="/main/teachers">< Volver</button>
 </div>

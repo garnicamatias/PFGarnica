@@ -1,0 +1,90 @@
+<h1 mat-dialog-title>Añadir Docente</h1>
+<div mat-dialog-content class="formContainer">
+    <form [formGroup]="addTeacherForm" (ngSubmit)="addTeacher()">
+
+        <div class="mb-3">
+            <label for="inputName" class="form-label">Nombre</label>
+            <input formControlName="name" type="text" [ngClass]="getClass('name')" class="form-control" id="inputName">
+            <div *ngIf="requiredAlert('name')" class="invalidInputText">Este campo es requerido</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="inputSurname" class="form-label">Apellido</label>
+            <input formControlName="surname" type="text" [ngClass]="getClass('surname')" class="form-control" id="inputSurname">
+            <div *ngIf="requiredAlert('surname')" class="invalidInputText">Este campo es requerido</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="inputFileNumber" class="form-label">N° de Legajo</label>
+            <input formControlName="fileNumber" type="text" [ngClass]="getClass('fileNumber')" class="form-control" id="inputFileNumber">
+            <div *ngIf="requiredAlert('fileNumber')" class="invalidInputText">Este campo es requerido</div>
+            <div *ngIf="addTeacherForm.controls['fileNumber'].errors?.['pattern']" class="invalidInputText">Ingresar solamente números</div>
+        </div>
+
+
+        <p>Materia</p>
+        <div class="mb-3 form-check inputRadioContainer">
+            <div>
+                <input formControlName="subject" type="radio" class="form-check-input" name="subject" id="Matemática" value="Matemática">
+                <label class="form-check-label" for="Matemática">Matemática</label>
+            </div>
+            <div>
+                <input formControlName="subject" type="radio" class="form-check-input" name="subject" id="Fisicoquímica" value="Fisicoquímica">
+                <label class="form-check-label" for="Fisicoquímica">Fisicoquímica</label>
+            </div>
+            <div>
+                <input formControlName="subject" type="radio" class="form-check-input" name="subject" id="Química" value="Química">
+                <label class="form-check-label" for="Química">Química</label>
+            </div>
+            <div>
+                <input formControlName="subject" type="radio" class="form-check-input" name="subject" id="Historia" value="Historia">
+                <label class="form-check-label" for="Historia">Historia</label>
+            </div>
+            <div>
+                <input formControlName="subject" type="radio" class="form-check-input" name="subject" id="Inglés" value="Inglés">
+                <label class="form-check-label" for="Inglés">Inglés</label>
+            </div>
+            <div>
+                <input formControlName="subject" type="radio" class="form-check-input" name="subject" id="Geografía" value="Geografía">
+                <label class="form-check-label" for="Geografía">Geografía</label>
+            </div>
+            <div>
+                <input formControlName="subject" type="radio" class="form-check-input" name="subject" id="Literatura" value="Literatura">
+                <label class="form-check-label" for="Literatura">Literatura</label>
+            </div>
+            <div>
+                <input formControlName="subject" type="radio" class="form-check-input" name="subject" id="Arte" value="Arte">
+                <label class="form-check-label" for="Arte">Arte</label>
+            </div>
+            <div>
+                <input formControlName="subject" type="radio" class="form-check-input" name="subject" id="Física" value="Física">
+                <label class="form-check-label" for="Física">Física</label>
+            </div>
+            <div>
+                <input formControlName="subject" type="radio" class="form-check-input" name="subject" id="Biología" value="Biología">
+                <label class="form-check-label" for="Biología">Biología</label>
+            </div>
+        </div>
+
+        
+        <div class="mb-3">
+            <label for="inputAge" class="form-label">Edad</label>
+            <input formControlName="age" type="text" [ngClass]="getClass('age')" class="form-control" id="inputAge">
+            <div *ngIf="requiredAlert('age')" class="invalidInputText">Este campo es requerido</div>
+            <div *ngIf="addTeacherForm.controls['age'].errors?.['pattern']" class="invalidInputText">Ingresar solamente números</div>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="inputAdress" class="form-label">Dirección</label>
+            <input formControlName="adress" type="text" [ngClass]="getClass('adress')" class="form-control" id="inputAdress">
+            <div *ngIf="requiredAlert('adress')" class="invalidInputText">Este campo es requerido</div>
+        </div>
+
+        <div class="container w-50 d-flex flex-column gap-2 p-3">
+            <button id="add-btn" type="submit" [disabled]="addTeacherForm.invalid" class="btn btn-success">Aceptar</button>
+            <button class="btn btn-danger" [mat-dialog-close]="true">Cancelar</button>
+        </div>
+
+        </form>
+</div>

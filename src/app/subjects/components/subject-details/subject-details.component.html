@@ -1,0 +1,16 @@
+<h2 *ngFor="let subject of subject$ | async"> {{subject.name}}</h2>
+<button class="btn btn-link" routerLink="/main/subjects">< Volver</button>
+<h4>Docentes:</h4>
+<div *ngIf="(teachers$ | async) as teacher">
+    <p *ngIf="teacher.length == 0">No hay docentes asignados/as a esta materia</p>
+</div>
+<div class="teachersContainer">
+    <div *ngFor="let teacher of teachers$ | async">
+        <mat-card class="teacherCard" *ngIf="teachers$">
+            <mat-card-content  [routerLink]="['/main/teachers/', teacher.id]">
+                {{teacher | completeName}}
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+

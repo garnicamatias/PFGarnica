@@ -29,6 +29,15 @@ on(TeachersStateActions.teachersLoaded, (state, {teachersObtained}) => {
         teachers : teachersObtained
     }
     return newState
+}),
+on(TeachersStateActions.AddTeacher, (state, { teacher : Teacher }) => {
+  return state;
+}),
+on(TeachersStateActions.EditTeacher, (state, { teacher : Teacher }) => {
+  return state;
+}),
+on(TeachersStateActions.DeleteTeacher, (state, { teacher : Teacher }) => {
+  return state;
 })
 );
 

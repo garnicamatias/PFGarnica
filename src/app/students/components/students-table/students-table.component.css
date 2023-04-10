@@ -6,6 +6,11 @@
     padding-bottom: 20px;
 }
 
+.btn-link{
+    color: #00704e;
+    font-weight: 500;
+}
+
 .titleContainer{
     padding-top: 20px;
 }

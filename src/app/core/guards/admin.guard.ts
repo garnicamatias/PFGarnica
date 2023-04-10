@@ -30,8 +30,6 @@ export class AdminGuard implements CanActivate {
           if (this.sessionAdmin) {
             return true
           } else {
-            alert('No tienes los permisos necesarios para ingresar a esta seccion')
-            this.router.navigate(['main'])
             return false
           }
   }

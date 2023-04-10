@@ -12,6 +12,12 @@ import { loadStudents, studentsLoaded } from '../../state/students-state.actions
 import { loadStudentsSelector, studentsLoadedSelector } from '../../state/students-state.selectors';
 import { StudentsState } from '../../state/students-state.reducer';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Session } from 'src/app/shared/models/session';
+import { SessionService } from 'src/app/core/services/session.service';
+import { LoginState } from 'src/app/login/state/login-state.reducer';
+import { loginStateLoaded } from 'src/app/login/state/login-state.actions';
+import { selectActiveUser } from 'src/app/login/state/login-state.selectors';
+import { User } from 'src/app/shared/models/user';
 
 
 @Component({
@@ -28,18 +34,21 @@ export class StudentsTableComponent implements OnInit{
   courseNumber !: number
   students!: Student[];
   loading$ !: Observable<Boolean>
-
+  session$ ?: Observable<User | undefined> 
+    
 
   constructor(
-    private studentsService : StudentsService,
     private dialog : MatDialog,
     private store : Store<StudentsState>,
-    private route : ActivatedRoute
+    private route : ActivatedRoute,
+    private loginStore : Store<LoginState>
     )
     {
+
   }
   
   ngOnInit(): void {
+    this.session$ = this.loginStore.select(selectActiveUser)
     this.loading$ = this.store.select(loadStudentsSelector)
     this.store.dispatch(loadStudents());
     this.dataSource = new MatTableDataSource<Student>();

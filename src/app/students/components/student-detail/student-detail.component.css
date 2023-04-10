@@ -5,3 +5,8 @@ h2{
 .btnContainer{
     padding-top: 20px;
 }
+
+.btn-link{
+    color: #00704e;
+    font-weight: 500;
+}

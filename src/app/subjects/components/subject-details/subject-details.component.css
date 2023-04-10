@@ -1,0 +1,19 @@
+h2{
+    padding-top: 20px;
+}
+
+.teachersContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.teacherCard{
+    cursor: pointer;
+}
+
+.btn-link{
+    padding-left: 0;
+    color: #00704e;
+    font-weight: 500;
+}

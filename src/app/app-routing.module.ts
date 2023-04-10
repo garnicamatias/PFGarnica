@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeLayoutComponent } from './home/components/home-layout/home-layout.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
+import { SessionGuard } from './core/guards/session.guard';
 
 const routes : Routes = [
 
@@ -11,7 +12,6 @@ const routes : Routes = [
   {path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
   {path: 'signup', loadChildren: () => import('./signup/signup.module').then(m => m.SignupModule)},
   {path: 'main', loadChildren: () => import('./main/main.module').then(m => m.MainModule)},
-  
   {path:'**', component: NotFoundComponent},
 ];
 

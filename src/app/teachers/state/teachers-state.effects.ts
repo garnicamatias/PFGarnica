@@ -3,7 +3,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { concatMap, map } from "rxjs";
-import { loadTeachers, teachersLoaded } from "./teachers-state.actions";
+import { AddTeacher, DeleteTeacher, EditTeacher, loadTeachers, teachersLoaded } from "./teachers-state.actions";
 import { Teacher } from "src/app/shared/models/teacher";
 import { TeachersService } from "../services/teachers.service";
 
@@ -19,52 +19,52 @@ export class TeachersEffects{
             })
         )
     });
-    // addTeachers$ = createEffect(() => {
-    //     return this.actions$.pipe(
-    //         ofType(AddStudent),
-    //         concatMap(({ student }) => {
-    //             return this.students.addStudent(student).pipe(
-    //                 map((student : Student) => {
-    //                     this.snackBar.open(`Estudiante ${student.name} ${student.surname} agregado/a correctamente`, 'Cerrar', {
-    //                         duration : 3000
-    //                     });
-    //                     return loadStudents();
-    //                 })
-    //             )
-    //         })
-    //     );
-    // });
-    // deleteStudent$ = createEffect(() => {
-    //     return this.actions$.pipe(
-    //         ofType(DeleteStudent),
-    //         concatMap(({ student }) => {
-    //             return this.students.deleteStudent(student).pipe(
-    //                 map((student: Student) => {
-    //                     this.snackBar.open(`Estudiante ${student.name} ${student.surname} eliminado/a correctamente`, 'Cerrar', {
-    //                         duration : 3000
-    //                     });
-    //                     return loadStudents();
-    //                 })
-    //             )
-    //         })
-    //     )
-    // });
+    addTeachers$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(AddTeacher),
+            concatMap(({ teacher }) => {
+                return this.teachers.addTeacher(teacher).pipe(
+                    map((teacher : Teacher) => {
+                        this.snackBar.open(`Docente ${teacher.name} ${teacher.surname} agregado/a correctamente`, 'Cerrar', {
+                            duration : 3000
+                        });
+                        return loadTeachers();
+                    })
+                )
+            })
+        );
+    });
+    deleteTeacher$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(DeleteTeacher),
+            concatMap(({ teacher }) => {
+                return this.teachers.deleteTeacher(teacher).pipe(
+                    map((teacher: Teacher) => {
+                        this.snackBar.open(`Docente ${teacher.name} ${teacher.surname} eliminado/a correctamente`, 'Cerrar', {
+                            duration : 3000
+                        });
+                        return loadTeachers();
+                    })
+                )
+            })
+        )
+    });
     
-    // editStudent$ = createEffect(() => {
-    //     return this.actions$.pipe(
-    //         ofType(EditStudent),
-    //         concatMap(({ student }) => {
-    //             return this.students.editStudent(student).pipe(
-    //                 map((student: Student) => {
-    //                     this.snackBar.open(`Estudiante ${student.name} ${student.surname} editado/a correctamente`, 'Cerrar', {
-    //                         duration : 3000
-    //                     });
-    //                     return loadStudents();
-    //                 })
-    //             )
-    //         })
-    //     );
-    // });
+    editTeacher$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(EditTeacher),
+            concatMap(({ teacher }) => {
+                return this.teachers.editTeacher(teacher).pipe(
+                    map((teacher: Teacher) => {
+                        this.snackBar.open(`Docente ${teacher.name} ${teacher.surname} editado/a correctamente`, 'Cerrar', {
+                            duration : 3000
+                        });
+                        return loadTeachers();
+                    })
+                )
+            })
+        );
+    });
 
     constructor(
         private teachers: TeachersService,

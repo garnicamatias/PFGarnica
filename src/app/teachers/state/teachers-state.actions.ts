@@ -9,3 +9,18 @@ export const teachersLoaded = createAction (
   '[teachers] Teachers loaded',
   props<{teachersObtained : Teacher[]}>()
 )
+
+export const AddTeacher = createAction (
+  '[teachers] Teacher Added',
+  props<{teacher : Teacher}>()
+)
+
+export const EditTeacher = createAction (
+  '[teachers] Teacher Edited',
+  props<{teacher : Teacher}>()
+)
+
+export const DeleteTeacher = createAction (
+  '[teachers] Teacher Deleted',
+  props<{teacher : Teacher}>()
+)

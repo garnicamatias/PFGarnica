@@ -12,9 +12,13 @@
     <a mat-list-item [routerLink]="['/main/subjects']">
         <span matListItemTitle>Materias</span>
     </a>
-    <a mat-list-item [routerLink]="['/main/users']">
-        <span matListItemTitle>Usuarios</span>
-    </a>
+    <ng-container *ngIf="session$ | async as session">
+        <a mat-list-item [routerLink]="['/main/users']" *ngIf="session.activeUser?.isAdmin">
+            <span matListItemTitle>Usuarios</span>
+        </a>
+    </ng-container>
+    
+    
 </mat-nav-list>
 <mat-nav-list>
     <a mat-list-item (click)="logout()">

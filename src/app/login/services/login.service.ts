@@ -28,7 +28,6 @@ export class LoginService {
             isSessionActive: true,
             activeUser: validatedUser
           }
-          
           return session 
         }else{
           const session: Session = {

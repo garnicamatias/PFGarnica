@@ -1,4 +1,10 @@
-<h2>Docentes</h2>
+<div class="titleContainer">
+    <h2>Docentes</h2>
+    <ng-container *ngIf="session$ | async as user">
+        <button class="btn btn-success" (click)="addTeacherModal()" *ngIf="user.isAdmin">Añadir docente</button>
+    </ng-container>
+</div>
+
 
 <div class="row loadingContainer" *ngIf="loading$ | async">
     <div class="col-md-12 spinnerContainer">

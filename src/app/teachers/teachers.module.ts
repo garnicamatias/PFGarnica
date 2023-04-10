@@ -10,17 +10,26 @@ import { StoreModule } from '@ngrx/store';
 import { reducer, teachersStateFeatureKey } from './state/teachers-state.reducer';
 import { TeacherDetailsComponent } from './components/teacher-details/teacher-details.component';
 import { TeachersEffects } from './state/teachers-state.effects';
+import { AddModalComponent } from './components/add-modal/add-modal.component';
+import { EditModalComponent } from './components/edit-modal/edit-modal.component';
+import { DeleteTeacherComponent } from './components/delete-teacher/delete-teacher.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
     TeachersListComponent,
-    TeacherDetailsComponent
+    TeacherDetailsComponent,
+    AddModalComponent,
+    EditModalComponent,
+    DeleteTeacherComponent
   ],
   imports: [
     CommonModule,
     TeachersRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
     MaterialModule,
     SharedModule,
     StoreModule.forFeature(teachersStateFeatureKey, reducer),

@@ -8,6 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class LoginLayoutComponent implements OnInit{
 
   ngOnInit(): void {
-    alert('Email: admin@admin.com, pass:1234')
+    alert('Admin: email: admin@admin.com, pass:1234 \nDocente: email: prueba@gmail.com, pass:1234')
   }
 }

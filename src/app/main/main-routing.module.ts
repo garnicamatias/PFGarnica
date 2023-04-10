@@ -9,10 +9,10 @@ import { AdminGuard } from '../core/guards/admin.guard';
 const routes : Routes = [
   {path:'', canActivate:[SessionGuard], canLoad:[SessionGuard] ,canActivateChild: [SessionGuard], component: MainLayoutComponent,
   children: [
-    {path: 'students',canActivate:[AdminGuard] , loadChildren: () => import('../students/students.module').then(m => m.StudentsModule)},
+    {path: 'students', loadChildren: () => import('../students/students.module').then(m => m.StudentsModule)},
     {path: 'teachers', loadChildren: () => import('../teachers/teachers.module').then(m => m.TeachersModule)},
     {path: 'subjects', loadChildren: () => import('../subjects/subjects.module').then(m => m.SubjectsModule)},
-    {path: 'users',canActivate:[AdminGuard] , loadChildren: () => import('../users/users.module').then(m => m.UsersModule)},
+    {path: 'users', loadChildren: () => import('../users/users.module').then(m => m.UsersModule)},
   ]
 }
 ]
